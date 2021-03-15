@@ -3,6 +3,10 @@ package info.info.designpattern
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import info.info.designpattern.statePattern.BrushTool
+import info.info.designpattern.statePattern.Canvas
+import info.info.designpattern.statePattern.SelectionTool
+import info.info.designpattern.statePattern.interFace.ToolInterFace
 import info.info.momentopattern.momentoPattern.Editor
 import info.info.momentopattern.momentoPattern.History
 import info.info.strategypattern.strategyPattern.example1.ImageStorage
@@ -18,8 +22,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 //        mementoPattern()
+
 //        strategyPatterEx1()
-          strategyPatterEx2()
+
+//        strategyPatterEx2()
+
+        statePattern()
     }
 
     private fun mementoPattern() {
@@ -43,6 +51,13 @@ class MainActivity : AppCompatActivity() {
     private fun strategyPatterEx2() {
         val usersStore = UsersStore()
         usersStore.store("Mansy", Male(), Egyption())
+    }
+
+    private fun statePattern() {
+        val canvas = Canvas()
+        canvas.toolInterFace = BrushTool()
+        canvas.mouseDown()
+        canvas.mouseUp()
     }
 
 }
